@@ -112,8 +112,7 @@ function criaFlappybird() {
 				flappybird.largura, flappybird.altura,
 			);
 		}
-	}
-	
+	}	
 	return flappybird;
 }
 
@@ -144,10 +143,11 @@ const globais = {};
 let telaAtiva = {};
 function mudaParaTela(novaTela){
 	telaAtiva = novaTela;
-	
-	if(telaAtiva.inicializa) {
+
+	if(telaAtiva.inicializa){
 		inicializa();
 	}
+
 
 }
 
