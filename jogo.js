@@ -72,7 +72,8 @@ function fazColisao(){
 	}
 	return false;
 }
-function criaFlappybird() {
+
+function criaFlappyBird(){
 	const flappybird = {
 		spriteX: 0,
 		spriteY: 0,
@@ -116,6 +117,9 @@ function criaFlappybird() {
 	return flappybird;
 }
 
+	
+
+
 
 //[mesagem de GetReady]
 const mensagemGetReady = {
@@ -139,22 +143,20 @@ const mensagemGetReady = {
 //
 // As telas do Jogo e troca entre telas
 //
-const globais = {};
+const globais = {}
 let telaAtiva = {};
 function mudaParaTela(novaTela){
 	telaAtiva = novaTela;
 
 	if(telaAtiva.inicializa){
-		inicializa();
+		telaAtiva.inicializa();
 	}
-
-
 }
 
 const Telas = {
 	INICIO:{
 		inicializa(){
-			globais.flappybird = criaFlappybird();
+			globais.flappybird = criaFlappyBird();
 		},
 		desenha(){
 			planoDeFundo.desenha();
