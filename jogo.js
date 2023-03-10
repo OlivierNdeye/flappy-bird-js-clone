@@ -1,7 +1,7 @@
 console.log('[Game Clone] Flappy Bird');
 
 const som_HIT = new Audio();
-som_HIT.src = './efeitos/efeitos_hit.wav'; 
+som_HIT.src = './efeitos/efeitos_bateu.mp3'; 
 
 const sprites = new Image();
 sprites.src = './sprites.png';
@@ -101,7 +101,7 @@ function criaFlappybird() {
 
 				setTimeout(() => {
 					mudaParaTela(Telas.INICIO);
-				}, 500);
+				}, 50);
 								
 				return;
 			}
