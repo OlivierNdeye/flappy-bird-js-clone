@@ -37,34 +37,42 @@ const planoDeFundo = {
 			planoDeFundo.largura, planoDeFundo.altura,
 		);
 	}
+
 }
 
 // Chão do jogo
-const chao = {
-	spriteX: 0,
-	spriteY: 610,
-	largura: 224,
-	altura: 112,
-	x: 0,
-	y: canvas.height -112,
-	desenha() {
-		contexto.drawImage(
-			sprites,
-			chao.spriteX, chao.spriteY, //sprites X e Y
-			chao.largura, chao.altura, // Tamanho do Recorte de X e Y
-			chao.x, chao.y,
-			chao.largura, chao.altura,
-		);
-		
-		contexto.drawImage(
-			sprites,
-			chao.spriteX, chao.spriteY, //sprites X e Y
-			chao.largura, chao.altura, // Tamanho do Recorte de X e Y
-			(chao.x + chao.largura), chao.y,
-			chao.largura, chao.altura,
-		);
-	},
-};
+function criaChao() {
+	const chao = {
+		spriteX: 0,
+		spriteY: 610,
+		largura: 224,
+		altura: 112,
+		x: 0,
+		y: canvas.height -112,
+
+		atualiza(){
+
+		},
+		desenha() {
+			contexto.drawImage(
+				sprites,
+				chao.spriteX, chao.spriteY, //sprites X e Y
+				chao.largura, chao.altura, // Tamanho do Recorte de X e Y
+				chao.x, chao.y,
+				chao.largura, chao.altura,
+			);
+			
+			contexto.drawImage(
+				sprites,
+				chao.spriteX, chao.spriteY, //sprites X e Y
+				chao.largura, chao.altura, // Tamanho do Recorte de X e Y
+				(chao.x + chao.largura), chao.y,
+				chao.largura, chao.altura,
+			);
+		},
+	};
+	return chao;
+}
 
 function fazColisao(flappyBird, chao){
 	const flappyBirdY = flappyBird.y + flappyBird.altura;
@@ -161,19 +169,19 @@ const Telas = {
 	INICIO:{
 		inicializa(){
 			globais.flappyBird = criaFlappyBird();
-
+			globais.chao = criaChao();
 		},
 		desenha(){
 			planoDeFundo.desenha();
-			chao.desenha();
 			globais.flappyBird.desenha();
+			chao.desenha();
 			mensagemGetReady.desenha();
 		},
 		click(){
 			mudaParaTela(Telas.JOGO)
 		},
 		atualiza(){
-
+			globais.chao.atualiza();
 		}
 	}
 };
