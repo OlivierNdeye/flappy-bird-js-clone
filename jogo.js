@@ -4,8 +4,8 @@ let frames = 0;
 const som_HIT = new Audio();
 som_HIT.src = './efeitos/bateu.mp3';
 
-// const som_DEAD = new Audio();
-// som_DEAD.src = '.efeitos/morreu.mp3';
+const som_DEAD = new Audio();
+som_DEAD.src = '.efeitos/morreu.mp3';
 
 const sprites = new Image();
 sprites.src = './sprites.png';
@@ -288,7 +288,7 @@ function criaCanos(){
 				if(canos.temColisaoComOFlappyBird(par)){
 					console.log('Se fudeu');
 					som_HIT.play();
-					//som_DEAD.play();
+					som_DEAD.play();
 					mudaParaTela(Telas.GAME_OVER)
 				}
 				
